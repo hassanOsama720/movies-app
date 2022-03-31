@@ -6,14 +6,7 @@ function Home (){
 
 
     return(
-        <Navbar bg="dark" variant="dark">
-            <Container fluid>
-                <Navbar.Brand href="#home">
-                     Movies
-                </Navbar.Brand>
-                <NavLink as={Link} to="/">Home</NavLink>
-            </Container>
-        </Navbar>
+        <h1> Welcome </h1>
     )
 }
 
