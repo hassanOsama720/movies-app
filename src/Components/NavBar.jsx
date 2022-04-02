@@ -27,7 +27,7 @@ function NavBar (){
     return(
         <Navbar bg="dark" variant="dark">
             <Container fluid>
-                <Navbar.Brand href="home">
+                <Navbar.Brand href="#home">
                      Movies
                 </Navbar.Brand>
                 <Nav className="me-auto">
