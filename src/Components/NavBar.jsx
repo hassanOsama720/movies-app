@@ -31,7 +31,7 @@ function NavBar (){
                      Movies
                 </Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link as={NavLink} activeClassName="active1" to="/home">Home</Nav.Link>
+                    <Nav.Link as={NavLink} activeClassName="active1" to="/">Home</Nav.Link>
                     <Nav.Link as={NavLink} activeClassName="active1" to="/movies">Movies</Nav.Link>
                     <Nav.Link as={NavLink} activeClassName="active1" to="/fav" style={{color:"gold"}}>
                     <FontAwesomeIcon style={{color:"gold"}}icon={faStar} size="lg"></FontAwesomeIcon>

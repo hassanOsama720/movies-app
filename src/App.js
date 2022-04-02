@@ -18,7 +18,7 @@ function App() {
       <NavBar />
       <div className="container my-5">
         <Switch>
-          <Route path="/home"  exact component={Home} />
+          <Route path="/"  exact component={Home} />
           <Route path="/movies" exact component={Movies} />
           <Route path="/movies/:id" exact component={Details} />
           <Route path="/fav" exact component={Fav} />
