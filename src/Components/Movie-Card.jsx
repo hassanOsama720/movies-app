@@ -7,8 +7,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovie, deleteMovie } from "../store/action";
 function MovieCard ({Movie}){
-    const fav = useSelector((state)=>state.moviesName);
+    const fav = useSelector((state)=>state.favReducer.movies);
     const [gold,setGold] = useState({})
+    const display = "none"
     const dispatch = useDispatch();
     useEffect(()=>{
         setGold("grey")
@@ -21,22 +22,22 @@ function MovieCard ({Movie}){
     function changeColor(){
         if(gold === "grey"){
             setGold("gold")
-            dispatch(addMovie({name:Movie.title,id:Movie.id}))
+            dispatch(addMovie(Movie))
         }
         if(gold === "gold"){
             setGold("grey")
-            dispatch(deleteMovie({name:Movie.title,id:Movie.id}))
+            dispatch(deleteMovie(Movie))
         }
         
        
     }
     return(
-        <Card style={{ width: '15rem' ,height:"400px",marginBottom:"40px"}}>
-                <Card.Img style={{height:"60%"}} variant="top" src={`https://image.tmdb.org/t/p/w500${Movie.poster_path}`} />
-                <Card.Body>
-                    <Card.Title>{Movie.title}</Card.Title>
+        <Card className="card-parent" style={{ width: '15rem' ,height:"300px",marginBottom:"40px"}}>
+                <Card.Img style={{height:"100%"}} variant="top" src={`https://image.tmdb.org/t/p/w500${Movie.poster_path}`} />
+                <Card.Body className="card-body">
+                    <Card.Title className="card-child card-title" style={{position:"absolute",bottom:"50px",color:"orange", display:display,fontWeight:"bolder",fontStyle:"italic"}}>{Movie.title}</Card.Title>
                     
-                    <Button as={Link} to={`/movies/${Movie.id}`} variant="primary">Details</Button>
+                    <Button className="card-child" style={{position:"absolute",bottom:"10px",display:display}} as={Link} to={`/movies/${Movie.id}`} variant="outline-primary">Details</Button>
                     <FontAwesomeIcon style={{color:gold,position:"absolute",top:"-25",left:"43%"}}
                     onClick={changeColor}
                     icon={faStar} size="3x"></FontAwesomeIcon>

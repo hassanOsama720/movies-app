@@ -11,6 +11,25 @@ span{
   height: 40vmin;
   pointer-events: none;
 }
+.card-title{
+  font-size: 30px !important;
+}
+.card-child{
+  transition-duration: 0.5s;
+}
+.card-parent:hover img {
+  filter: grayscale(100%);
+}
+.card-parent:hover .card-child{
+  display: inline-block !important;
+}
+
+
+
+
+
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

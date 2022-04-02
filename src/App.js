@@ -6,9 +6,14 @@ import Home from './Components/Home';
 import Movies from './Components/Movies';
 import Details from './Components/Details';
 import Fav from './Components/Fav';
+import { languageContext } from "./context/language";
+import { useState } from 'react';
 
 function App() {
+  const [langContext, setLangContext] = useState("en");
   return (
+    <languageContext.Provider value={{ langContext, setLangContext }}>
+
     <Router>
       <NavBar />
       <div className="container my-5">
@@ -20,6 +25,7 @@ function App() {
         </Switch>
       </div>
     </Router>
+    </languageContext.Provider>
   );
 }
 

@@ -1,19 +1,21 @@
 import  "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getMovie } from "../store/MoviesAction";
+import { languageContext } from "../context/language";
 
 function Details (){
-    const [MovieDetails, setMovieDetails] = useState({});
+    const MovieDetails = useSelector((state)=>state.MoviesReducer.movie)
+    const {langContext, setLangContext} = useContext(languageContext)
   const params = useParams();
+  const dispatch = useDispatch();
   useEffect(() => {
-      axios.get(`https://api.themoviedb.org/3/movie/${params.id}popular?api_key=d1f06f746c82eac24bc1f93a2ca831e0`)
-      .then((res) =>{setMovieDetails(res.data)
-    console.log(res.data)})
-      .catch((err) => console.log(err));
-  },[]);
+      dispatch(getMovie(params.id,langContext))
+  },[langContext]);
 
     return(
         <Container>

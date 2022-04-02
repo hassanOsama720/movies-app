@@ -1,14 +1,14 @@
 const INITIAL_STATE = {
-    moviesName: [],
+    movies: [],
     favNumber:0
   };
   
-  export function MovieReducer(state = INITIAL_STATE, action) {
+  export function favReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
       case "DELETE_MOVIE":
-          for (let index = 0; index < state.moviesName.length; index++) {
-              if(state.moviesName[index].id === action.payload.id){
-                  state.moviesName.splice(index,1);
+          for (let index = 0; index < state.movies.length; index++) {
+              if(state.movies[index].id === action.payload.id){
+                  state.movies.splice(index,1);
                   state.favNumber = state.favNumber - 1;
               }
           }
@@ -16,7 +16,7 @@ const INITIAL_STATE = {
           ...state,
         };
       case "ADD_MOVIE":
-          state.moviesName.push(action.payload);
+          state.movies.push(action.payload);
           state.favNumber = state.favNumber + 1;
         return {
           ...state
